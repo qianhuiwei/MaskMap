@@ -1,5 +1,5 @@
 .info {
-    height: 90px;
+    height: 100px;
     padding: 10px 12px;
     background: $color-primary;
     color: $text-light;
@@ -8,18 +8,18 @@
         text-align: right;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 4px;
+        margin-bottom: 8px;
     }
     .day {
         font-size: 28px;
         line-height: 38px;
     }
     .date {
-        font-size: 12px;
+        font-size: 14px;
     }
     .id {
         line-height: 20px;
-        font-size: 8px;
+        font-size: 10px;
         span {
             color: $color-contrast;
             font-weight: bold;
@@ -34,7 +34,7 @@
         background: #FFFFFF 0% 0% no-repeat padding-box;
         border: none;
         border-radius: 20px;
-        font-size: 10px;
+        font-size: 14px;
         background-image: url(img/Search.png);
         background-size: 20px 18px;
         background-position: 95% 50%;

@@ -80,7 +80,8 @@ body {
 
 .container {
   display: flex;
-  width: 1200px;
+  justify-content: space-between;
+  width: 1220px;
   margin: 0 auto;
   padding-top: 56px;
   padding-bottom: 56px;
@@ -111,7 +112,7 @@ body {
 
 .main {
   display: flex;
-  width: 980px;
+  width: 1000px;
   height: 660px;
   background: #333333 0% 0% no-repeat padding-box;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1607843137);
@@ -119,7 +120,7 @@ body {
   padding: 20px;
 }
 .main .aside {
-  width: 254px;
+  width: 274px;
 }
 
 #map {
@@ -128,7 +129,7 @@ body {
 }
 
 .info {
-  height: 90px;
+  height: 100px;
   padding: 10px 12px;
   background: #73C0D8;
   color: #FFFFFF;
@@ -138,18 +139,18 @@ body {
   text-align: right;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 .info .day {
   font-size: 28px;
   line-height: 38px;
 }
 .info .date {
-  font-size: 12px;
+  font-size: 14px;
 }
 .info .id {
   line-height: 20px;
-  font-size: 8px;
+  font-size: 10px;
 }
 .info .id span {
   color: #FFF126;
@@ -164,7 +165,7 @@ body {
   background: #FFFFFF 0% 0% no-repeat padding-box;
   border: none;
   border-radius: 20px;
-  font-size: 10px;
+  font-size: 14px;
   background-image: url(img/Search.png);
   background-size: 20px 18px;
   background-position: 95% 50%;
@@ -180,7 +181,7 @@ body {
 }
 
 .list {
-  height: 530px;
+  height: 520px;
   overflow: scroll;
   background: white;
 }
@@ -201,13 +202,13 @@ body {
 .list-item .title {
   color: #333333;
   font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 4px;
+  font-size: 18px;
+  margin-bottom: 6px;
 }
 .list-item p {
-  font-size: 12px;
+  font-size: 14px;
   color: #666666;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   line-height: 16px;
 }
 .list-item .mask-container {
@@ -220,19 +221,19 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4px 8px;
+  padding: 6px 8px;
   border-radius: 25px;
   color: #FFFFFF;
-  font-size: 10px;
+  font-size: 12px;
 }
 .list-item .mask span {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .leaflet-popup-content-wrapper {
-  width: 180px;
-  padding: 12px 8px;
+  width: 220px;
+  padding: 16px 12px;
 }
 
 .leaflet-popup-content {
@@ -240,11 +241,11 @@ body {
 }
 
 .popup .title {
-  font-size: 10px;
+  font-size: 14px;
   font-weight: bold;
 }
 .popup p {
-  font-size: 8px;
+  font-size: 12px;
   color: #666666;
   margin: 0;
   margin-top: 4px;
@@ -261,10 +262,10 @@ body {
   align-items: center;
   border-radius: 25px;
   color: #FFFFFF;
-  font-size: 6px;
+  font-size: 10px;
 }
 .popup .mask span {
-  font-size: 8px;
+  font-size: 12px;
   font-weight: bold;
 }
 

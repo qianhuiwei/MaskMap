@@ -1,5 +1,5 @@
 .list {
-    height:530px;
+    height:520px;
     overflow: scroll;
     background: white;
 }
@@ -19,13 +19,13 @@
     .title {
         color: $text-dark;
         font-weight: bold;
-        font-size: 14px;
-        margin-bottom: 4px;
+        font-size: 18px;
+        margin-bottom: 6px;
     }
     p {
-        font-size: 12px;
+        font-size: 14px;
         color: $text-primary;
-        margin-bottom: 4px;
+        margin-bottom: 6px;
         line-height: 16px;
     }
     .mask-container {
@@ -38,13 +38,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 4px 8px;
+        padding: 6px 8px;
         border-radius: 25px;
         color: $text-light;
-        font-size: 10px;
+        font-size: 12px;
         span {
             font-weight: bold;
-            font-size: 14px;
+            font-size: 16px;
         }
     }
 }
