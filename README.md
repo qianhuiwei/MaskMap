@@ -4,9 +4,8 @@ This is a web service that shows the storage of masks of each pharmacy in Taiwan
 * Provides a list of pharmacies with detailed infomation including store name, address, tel number, storage for adult mask aand child mask.
 * Displays an interactive map marking each pharmacy with a popup.
 * Allows user to search pharmacies based on store name, location or address.
-\
-&nbsp;
-<img src="https://github.com/qianhuiwei/MaskMap/blob/main/pageDemo.png" width="700"/>
+
+<img src="https://github.com/qianhuiwei/MaskMap/blob/main/pageDemo.png" width="800"/>
 
 ## Check out the page
 Open the link below (Chrome or Safari recommended):  
