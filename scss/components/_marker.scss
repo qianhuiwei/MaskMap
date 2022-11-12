@@ -1,0 +1,25 @@
+.marker-cluster {
+    border-radius: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 14px "Helvetica Neue", Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.marker-cluster-small {
+    border: 3px solid  mediumPurple;
+    background: rgba(mediumPurple, 0.6);
+}
+
+.marker-cluster-medium {
+    border: 3px solid lightSeaGreen;
+    background-color: rgba(lightSeaGreen, 0.6);
+}
+
+.marker-cluster-large {
+    border: 3px solid Orchid;
+    background-color: rgba(Orchid, 0.6);
+}

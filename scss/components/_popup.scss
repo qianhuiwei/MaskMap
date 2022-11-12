@@ -1,0 +1,39 @@
+.leaflet-popup-content-wrapper{
+    width: 180px;
+    padding: 12px 8px;
+}
+.leaflet-popup-content {
+    margin: 0;
+}
+
+.popup {
+    .title {
+        font-size: 10px;
+        font-weight: bold;
+    }
+    p {
+        font-size: 8px;
+        color: $text-primary;
+        margin: 0;
+        margin-top: 4px;
+    }
+    .mask-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .mask {
+        width: 48%;
+        padding: 4px 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 25px;
+        color: $text-light;
+        font-size: 6px;
+        
+        span {
+            font-size: 8px;
+            font-weight: bold;
+        }
+    }
+}

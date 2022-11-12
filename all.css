@@ -1,0 +1,295 @@
+.bg-primary {
+  background: #73C0D8;
+}
+
+.bg-light {
+  background: #FFA573;
+}
+
+.bg-gray {
+  background: #A5A5A5;
+}
+
+/* 
+====================================
+        Reset CSS
+====================================
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*, *:before, *:after { /* apply border-box model to all elements */
+  box-sizing: border-box;
+}
+
+img { /* make all images responsive */
+  max-width: 100%; /* will adjust sizes with its container */
+  height: auto;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  width: 1200px;
+  margin: 0 auto;
+  padding-top: 56px;
+  padding-bottom: 56px;
+  background-image: linear-gradient(45deg, white 0 50%, #73C0D8 50% 100%);
+  background-repeat: no-repeat;
+}
+
+.header {
+  margin-right: 30px;
+}
+.header h1 {
+  font-size: 54px;
+  -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl;
+}
+.header h1 span {
+  color: #73C0D8;
+}
+.header h1 .header-ch {
+  padding-top: 30px;
+  letter-spacing: 22px;
+  padding-left: 16px;
+}
+.header h1 .header-en {
+  padding-top: 260px;
+  padding-left: 16px;
+}
+
+.main {
+  display: flex;
+  width: 980px;
+  height: 660px;
+  background: #333333 0% 0% no-repeat padding-box;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1607843137);
+  border-radius: 17px;
+  padding: 20px;
+}
+.main .aside {
+  width: 254px;
+}
+
+#map {
+  height: 100%;
+  width: 686px;
+}
+
+.info {
+  height: 90px;
+  padding: 10px 12px;
+  background: #73C0D8;
+  color: #FFFFFF;
+}
+.info .info-today {
+  display: flex;
+  text-align: right;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.info .day {
+  font-size: 28px;
+  line-height: 38px;
+}
+.info .date {
+  font-size: 12px;
+}
+.info .id {
+  line-height: 20px;
+  font-size: 8px;
+}
+.info .id span {
+  color: #FFF126;
+  font-weight: bold;
+  font-size: 14px;
+}
+.info input {
+  width: 100%;
+  height: 30px;
+  padding-left: 18px;
+  padding-right: 18px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: none;
+  border-radius: 20px;
+  font-size: 10px;
+  background-image: url(img/Search.png);
+  background-size: 20px 18px;
+  background-position: 95% 50%;
+}
+.info ::-moz-placeholder {
+  color: #B2B2B2;
+}
+.info :-ms-input-placeholder {
+  color: #B2B2B2;
+}
+.info ::placeholder {
+  color: #B2B2B2;
+}
+
+.list {
+  height: 530px;
+  overflow: scroll;
+  background: white;
+}
+
+.list-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-item {
+  padding: 8px 12px;
+  border-bottom: 1px solid #D9D9D9;
+}
+.list-item:hover {
+  background: rgba(255, 241, 38, 0.1);
+}
+.list-item .title {
+  color: #333333;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.list-item p {
+  font-size: 12px;
+  color: #666666;
+  margin-bottom: 4px;
+  line-height: 16px;
+}
+.list-item .mask-container {
+  display: flex;
+  justify-content: space-between;
+}
+.list-item .mask {
+  width: 48%;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 25px;
+  color: #FFFFFF;
+  font-size: 10px;
+}
+.list-item .mask span {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.leaflet-popup-content-wrapper {
+  width: 180px;
+  padding: 12px 8px;
+}
+
+.leaflet-popup-content {
+  margin: 0;
+}
+
+.popup .title {
+  font-size: 10px;
+  font-weight: bold;
+}
+.popup p {
+  font-size: 8px;
+  color: #666666;
+  margin: 0;
+  margin-top: 4px;
+}
+.popup .mask-container {
+  display: flex;
+  justify-content: space-between;
+}
+.popup .mask {
+  width: 48%;
+  padding: 4px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 25px;
+  color: #FFFFFF;
+  font-size: 6px;
+}
+.popup .mask span {
+  font-size: 8px;
+  font-weight: bold;
+}
+
+.marker-cluster {
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 14px "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.marker-cluster-small {
+  border: 3px solid mediumPurple;
+  background: rgba(147, 112, 219, 0.6);
+}
+
+.marker-cluster-medium {
+  border: 3px solid lightSeaGreen;
+  background-color: rgba(32, 178, 170, 0.6);
+}
+
+.marker-cluster-large {
+  border: 3px solid Orchid;
+  background-color: rgba(218, 112, 214, 0.6);
+}
