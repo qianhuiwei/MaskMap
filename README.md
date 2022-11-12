@@ -7,12 +7,12 @@ This is a web service that shows the storage of masks of each pharmacy in Taiwan
 
 \
 &nbsp;
-\
-&nbsp;
-<img src="https://github.com/qianhuiwei/MaskMap/blob/main/pageDemo.png" width="600"/>
+
+<img src="https://github.com/qianhuiwei/MaskMap/blob/main/pageDemo.png" width="700"/>
 
 ## Check out the page
 Open the link below (Chrome or Safari recommended):  
+https://qianhuiwei.github.io/MaskMap/
 
 
 ## Features
