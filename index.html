@@ -5,13 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <!--Leaflet CSS-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css"></link> 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css"></link> 
-<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
-    
+    <!--Leaflet markercluster CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css">
+    </link>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css">
+    </link>
+    <!--Leaflet JS-->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <!--Leaflet markercluster JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+    <!--My own CSS-->
     <link rel="stylesheet" href="all.css">
     <title>Mask Map 口罩地圖</title>
 </head>
@@ -34,7 +39,10 @@
                             <div class="id">身分證末碼為<span></span>可購買</div>
                         </div>
                     </div>
-                    <input type="text" class="input" placeholder="搜尋區域,地址,藥局">
+                    <div class="input">
+                        <input type="text" class="input-field" placeholder="搜尋區域,地址,藥局">
+                        <!-- <img src="img/Search.png" alt="search icon"> -->
+                    </div>
                 </div>
                 <ul class="list">
                 </ul>
@@ -42,7 +50,7 @@
             <div id="map"></div>
         </div>
     </div>
-
+    <!--My own JS-->
     <script src="all.js"></script>
 </body>
 

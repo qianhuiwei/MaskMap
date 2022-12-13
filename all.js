@@ -87,15 +87,15 @@ function showList(data) {
     let str = "";
     for (let dataItem of data) {
         str += `<li class="list-item" data-id=${dataItem.id} data-long=${dataItem.cord[1]} data-lat=${dataItem.cord[0]}>
-            <h2 class="title">${dataItem.name}</h2>
-            <p>${dataItem.address}</p>
-            <p>${formateTel(dataItem.phone)}</p>
+    <h2 class="title">${dataItem.name}</h2>
+    <p>${dataItem.address}</p>
+        <p>${formatTel(dataItem.phone)}</p>
             <p>${dataItem.note}</p>
             <div class="mask-container">
                 <p class="mask ${getBgColor(dataItem.maskAdult)}">成人口罩<span>${dataItem.maskAdult}</span></p>
                 <p class="mask ${getBgColor(dataItem.maskChild)}">兒童口罩<span>${dataItem.maskChild}</span></p>
             </div>
-        </li>`;;
+        </li>`;
     }
     list.innerHTML = str;
 }
@@ -172,7 +172,7 @@ function createPopup(dataItem) {
     str += `<div class="popup">
             <h2 class="title">${dataItem.name}</h2>
             <p>${dataItem.address}</p>
-            <p>${formateTel(dataItem.phone)}</p>
+            <p>${formatTel(dataItem.phone)}</p>
             <p>${dataItem.note}</p>
             <div class="mask-container">
                 <p class="mask ${getBgColor(dataItem.maskAdult)}">成人口罩<span>${dataItem.maskAdult}</span></p>
@@ -198,6 +198,7 @@ function bindEventListeners() {
 function search(e) {
     if (e.code == "Enter") {
         filterData(e.target.value);
+        e.target.value = "";
         showList(filteredData);
         if (filteredData.length == 0) {
             showDefaultMap();
@@ -209,11 +210,17 @@ function search(e) {
 
 // Function that opens the target's marker popup 
 function showPopup(e) {
-    let target = e.target.nodeName;
-    if (target == "LI") {
-        let dataset = e.target.dataset;
-        updateMap([dataset.lat, dataset.long], dataset.id);
+    let cur = e;
+    if (cur.target.nodeName !== "LI") {
+        cur = cur.target.parentNode;
+        while (cur.nodeName !== "LI") {
+            cur = cur.parentNode;
+        }   
+    } else {
+        cur = e.target;
     }
+    let dataset = cur.dataset;
+    updateMap([dataset.lat, dataset.long], dataset.id);
 }
 
 // Function that gets a list of data that matches the input keyword
@@ -244,7 +251,7 @@ function getInfo() {
     let day = new Date().getDay();
     let idEnd = day % 2 == 0 ? "2,4,6,8,0" : "1,3,5,7,9";
     document.querySelector(".day").innerHTML = `星期${dayName[day]}`;
-    document.querySelector(".date").innerHTML = `${formateDate()}`;
+    document.querySelector(".date").innerHTML = `${formatDate()}`;
     document.querySelector(".id span").innerHTML = idEnd;
 }
 
@@ -252,8 +259,8 @@ function getInfo() {
 /* Formaters        */
 /*------------------*/
 
-// Function function that formates the date info to meet the design specs
-function formateDate() {
+// Function function that formats the date info to meet the design specs
+function formatDate() {
     let now = new Date();
     let month = now.getMonth() + 1;
     let date = now.getDate();
@@ -264,8 +271,8 @@ function formateDate() {
     return result;
 }
 
-// Function function that formates the tel number to meet the design specs
-function formateTel(tel) {
+// Function function that formats the tel number to meet the design specs
+function formatTel(tel) {
     let cityCode = tel.substring(1, 3);
     let s1;
     let s2;
