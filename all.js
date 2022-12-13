@@ -1,7 +1,7 @@
-let data = [];
-let filteredData = [];
+const pharmacies = [];
+let filteredPharmacies = [];
 let map;
-let markerMap = new Map();
+const markerMap = new Map();
 
 /*------------------*/
 /* Load the page    */
@@ -20,7 +20,7 @@ function getData() {
     xhr.onload = function () {
         let response = JSON.parse(xhr.responseText).features;
         collectData(response);
-        showList(data);
+        showList(pharmacies);
         showMap();
     }
 }
@@ -28,21 +28,22 @@ function getData() {
 // Function that collects data we need from response of the API request
 function collectData(response) {
     for (let dataItem of response) {
-        let obj = {};
-        obj.id = dataItem.properties.id;
-        obj.name = dataItem.properties.name;
-        obj.phone = dataItem.properties.phone;
-        obj.address = dataItem.properties.address;
-        obj.cord = [dataItem.geometry.coordinates[1], dataItem.geometry.coordinates[0]];
-        obj.note = dataItem.properties.note == "-" ? "" : dataItem.properties.note;
-        obj.maskAdult = dataItem.properties.mask_adult;
-        obj.maskChild = dataItem.properties.mask_child;
-        data.push(obj);
+        let pharmacy = {
+            id: dataItem.properties.id,
+            name: dataItem.properties.name,
+            phone: dataItem.properties.phone,
+            address: dataItem.properties.address,
+            cord: [dataItem.geometry.coordinates[1], dataItem.geometry.coordinates[0]],
+            note: dataItem.properties.note == "-" ? "" : dataItem.properties.note,
+            maskAdult: dataItem.properties.mask_adult,
+            maskChild: dataItem.properties.mask_child
+        };
+        pharmacies.push(pharmacy);
     }
     /* this line of code is just for showing better UI when the page is loaded, 
     should be removed
     */
-    data.shift();
+    pharmacies.shift();
 }
 
 // Function that shows loader while requesting data
@@ -76,24 +77,24 @@ function showDefaultMap() {
 /* Display the list */
 /*------------------*/
 
-// Function that shows a list of pharmacy on the page based on input data
-function showList(data) {
-    if (data.length == 0) {
+// Function that shows a list of pharmacies on the page based on input data
+function showList(pharmacies) {
+    if (pharmacies.length == 0) {
         showErrorMessage();
         return;
     }
     let list = document.querySelector(".list");
     list.classList.remove("list-error");
     let str = "";
-    for (let dataItem of data) {
-        str += `<li class="list-item" data-id=${dataItem.id} data-long=${dataItem.cord[1]} data-lat=${dataItem.cord[0]}>
-    <h2 class="title">${dataItem.name}</h2>
-    <p>${dataItem.address}</p>
-        <p>${formatTel(dataItem.phone)}</p>
-            <p>${dataItem.note}</p>
+    for (let pharmacy of pharmacies) {
+        str += `<li class="list-item" data-id=${pharmacy.id} data-long=${pharmacy.cord[1]} data-lat=${pharmacy.cord[0]}>
+    <h2 class="title">${pharmacy.name}</h2>
+    <p>${pharmacy.address}</p>
+        <p>${formatTel(pharmacy.phone)}</p>
+            <p>${pharmacy.note}</p>
             <div class="mask-container">
-                <p class="mask ${getBgColor(dataItem.maskAdult)}">成人口罩<span>${dataItem.maskAdult}</span></p>
-                <p class="mask ${getBgColor(dataItem.maskChild)}">兒童口罩<span>${dataItem.maskChild}</span></p>
+                <p class="mask ${getBgColor(pharmacy.maskAdult)}">成人口罩<span>${pharmacy.maskAdult}</span></p>
+                <p class="mask ${getBgColor(pharmacy.maskChild)}">兒童口罩<span>${pharmacy.maskChild}</span></p>
             </div>
         </li>`;
     }
@@ -121,25 +122,25 @@ function getBgColor(maskNum) {
    The map will have markers and popup info for each pharmacy.
 */
 function showMap() {
-    if (data.length == 0) {
+    if (pharmacies.length == 0) {
         showDefaultMap();
         return;
     }
     // load the map and set defualt center & zoom
-    map.setView(data[0].cord, 18);
+    map.setView(pharmacies[0].cord, 18);
     // add marker group layer
-    let markerGroup = new L.MarkerClusterGroup().addTo(map);
+    let markerGroup = new L.MarkerClusterGroup();
 
     // add markers
-    for (let dataItem of data) {
-        let maskNum = dataItem.maskAdult + dataItem.maskChild;
-        let marker = L.marker(dataItem.cord, { icon: getMarkerIcon(maskNum) }).bindPopup(createPopup(dataItem));
-        markerMap.set(dataItem.id, marker); // store each marker's id in a map data structure
+    for (let pharmacy of pharmacies) {
+        let maskNum = pharmacy.maskAdult + pharmacy.maskChild;
+        let marker = L.marker(pharmacy.cord, { icon: getMarkerIcon(maskNum) }).bindPopup(createPopup(pharmacy));
+        markerMap.set(pharmacy.id, marker); // store each marker's id in a map data structure
         markerGroup.addLayer(marker);
     }
     map.addLayer(markerGroup);
     // open popup for thee first item in the list
-    markerMap.get(data[0].id).openPopup();
+    markerMap.get(pharmacies[0].id).openPopup();
 }
 
 /* Function that returns a marker icon with background color. 
@@ -167,16 +168,16 @@ function getMarkerIcon(maskNum) {
 }
 
 // Function that creates a map's marker popup with info from the input data
-function createPopup(dataItem) {
+function createPopup(pharmacy) {
     let str = "";
     str += `<div class="popup">
-            <h2 class="title">${dataItem.name}</h2>
-            <p>${dataItem.address}</p>
-            <p>${formatTel(dataItem.phone)}</p>
-            <p>${dataItem.note}</p>
+            <h2 class="title">${pharmacy.name}</h2>
+            <p>${pharmacy.address}</p>
+            <p>${formatTel(pharmacy.phone)}</p>
+            <p>${pharmacy.note}</p>
             <div class="mask-container">
-                <p class="mask ${getBgColor(dataItem.maskAdult)}">成人口罩<span>${dataItem.maskAdult}</span></p>
-                <p class="mask ${getBgColor(dataItem.maskChild)}">兒童口罩<span>${dataItem.maskChild}</span></p>
+                <p class="mask ${getBgColor(pharmacy.maskAdult)}">成人口罩<span>${pharmacy.maskAdult}</span></p>
+                <p class="mask ${getBgColor(pharmacy.maskChild)}">兒童口罩<span>${pharmacy.maskChild}</span></p>
             </div>
         </div>`;
     return str;
@@ -192,18 +193,18 @@ function bindEventListeners() {
     document.querySelector(".list").addEventListener("click", showPopup);
 }
 
-/* Function that gets a list of data that matches the target input, 
+/* Function that gets a list of pharmacies that matches the target input, 
    updates the list and map based on the search result.
 */
 function search(e) {
     if (e.code == "Enter") {
-        filterData(e.target.value);
+        filteredPharmacy(e.target.value);
         e.target.value = "";
-        showList(filteredData);
-        if (filteredData.length == 0) {
+        showList(filteredPharmacies);
+        if (filteredPharmacies.length == 0) {
             showDefaultMap();
         } else {
-            updateMap(filteredData[0].cord, filteredData[0].id);
+            updateMap(filteredPharmacies[0].cord, filteredPharmacies[0].id);
         }
     }
 }
@@ -224,11 +225,11 @@ function showPopup(e) {
 }
 
 // Function that gets a list of data that matches the input keyword
-function filterData(keyword) {
-    filteredData = [];
-    for (let dataItem of data) {
-        if (dataItem.name.includes(keyword) || dataItem.address.includes(keyword)) {
-            filteredData.push(dataItem);
+function filteredPharmacy(keyword) {
+    filteredPharmacies = [];
+    for (let pharmacy of pharmacies) {
+        if (pharmacy.name.includes(keyword) || pharmacy.address.includes(keyword)) {
+            filteredPharmacies.push(pharmacy);
         }
     }
 }

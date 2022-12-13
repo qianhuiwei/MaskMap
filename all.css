@@ -167,6 +167,9 @@ body {
   border: none;
   border-radius: 20px;
   font-size: 14px;
+  background-image: url(img/Search.png);
+  background-size: 20px 18px;
+  background-position: 95% 50%;
 }
 .info ::-moz-placeholder {
   color: #B2B2B2;
