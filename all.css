@@ -111,6 +111,7 @@ body {
 }
 
 .main {
+  margin-right: 30px;
   display: flex;
   width: 980px;
   height: 660px;
