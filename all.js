@@ -201,13 +201,13 @@ function search(e) {
         // sanitize user input
         const userInput = sanitize(e.target.value);
         if (userInput === "") {
-            alert("請輸入搜尋關鍵字（中文、英文或數字）");
+            alert("請輸入搜尋關鍵字（中文、英文或數字\n請勿輸入標點符號或特殊符號");
             return;
         }
-        // find pharacies that match the searching keyword
-        filteredPharmacy(userInput);
         // clear input field
         e.target.value = ""; 
+        // find pharacies that match the searching keyword
+        filteredPharmacy(userInput);
         // display searching result and update map
         showList(filteredPharmacies);
         if (filteredPharmacies.length == 0) {
