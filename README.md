@@ -13,7 +13,7 @@ https://qianhuiwei.github.io/MaskMap/
 
 
 ## Features
-* Worked with the [Adobe design specs](https://xd.adobe.com/spec/47f7c204-e178-4f7f-7955-22554cdeedce-31c6/).
+* Worked with the [AdobeXD design specs](https://xd.adobe.com/spec/47f7c204-e178-4f7f-7955-22554cdeedce-31c6/).
 * Developed with HTML, JS, CSS, and AJAX.
 * Managed CSS with SCSS.
 * Used map data from [OpenStreetMap](https://www.openstreetmap.org/#map=7/23.611/120.768).
