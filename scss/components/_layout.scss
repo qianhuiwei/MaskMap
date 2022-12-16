@@ -1,7 +1,7 @@
 .container {
     display: flex;
-    justify-content: space-evenly;
-    width: 1220px;
+    justify-content: space-between;
+    width: 1200px;
     margin: 0 auto;
     padding-top: 56px;
     padding-bottom: 56px;
@@ -32,7 +32,7 @@
 
 .main {
     display: flex;
-    width: 1000px;
+    width: 980px;
     height: 660px;
     background: $color-dark 0% 0% no-repeat padding-box;
     box-shadow: 10px 10px 20px #00000029;

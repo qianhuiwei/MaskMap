@@ -80,8 +80,8 @@ body {
 
 .container {
   display: flex;
-  justify-content: space-evenly;
-  width: 1220px;
+  justify-content: space-between;
+  width: 1200px;
   margin: 0 auto;
   padding-top: 56px;
   padding-bottom: 56px;
@@ -112,7 +112,7 @@ body {
 
 .main {
   display: flex;
-  width: 1000px;
+  width: 980px;
   height: 660px;
   background: #333333 0% 0% no-repeat padding-box;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1607843137);
