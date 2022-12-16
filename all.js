@@ -198,14 +198,35 @@ function bindEventListeners() {
 */
 function search(e) {
     if (e.code == "Enter") {
-        filteredPharmacy(e.target.value);
-        e.target.value = "";
+        // sanitize user input
+        const userInput = sanitize(e.target.value);
+        if (userInput === "") {
+            alert("請輸入搜尋關鍵字（中文、英文或數字）");
+            return;
+        }
+        // find pharacies that match the searching keyword
+        filteredPharmacy(userInput);
+        // clear input field
+        e.target.value = ""; 
+        // display searching result and update map
         showList(filteredPharmacies);
         if (filteredPharmacies.length == 0) {
             showDefaultMap();
         } else {
             updateMap(filteredPharmacies[0].cord, filteredPharmacies[0].id);
         }
+    }
+}
+
+// Function that sanitizes user input for security
+function sanitize(input) {
+    // remove leading or trailing spaces
+    let str = input.trim();
+    // only allow numbers, english, chinese and space in between
+    if (str.match(/^[a-zA-z0-9\u4E00-\u9FCC\ ]*$/)) {
+        return str;
+    } else {
+        return "";
     }
 }
 
