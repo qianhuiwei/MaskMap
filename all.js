@@ -223,9 +223,10 @@ function sanitize(input) {
     // remove leading or trailing spaces
     let str = input.trim();
     // only allow numbers, english, chinese and space in between
-    if (str.match(/^[a-zA-z0-9\u4E00-\u9FCC\ ]*$/)) {
+    if (str.match(/^[A-Za-z0-9\u4E00-\u9FCC\ ]*$/)) {
         return str;
     } else {
+        alert("invalid");
         return "";
     }
 }
